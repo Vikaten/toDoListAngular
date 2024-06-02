@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="todo-wrapper">
+    <div class="clock"></div>
+    <h1 class="heading">Ваш лист заметок</h1>
+    <input class="space" type="text" [(ngModel)]="todoService.newToDo" />
+    <input type="date" class="date">{{todoService.toDoList}}
+    <button class="noticeButton" (click)="checkingTheString()">Добавить</button>
+    <ul class="list" *ngFor="let task of todoService.toDoList; let i = index">
+      <li id="item${i}" class="li_item">
+        <div class="checkTrash">
+          <div class="checkText">
+            <input type="checkbox" class="checkbox" id="item${i}" [checked]="task.isChecked"  (change)="saveChecked(i)"/>   
+            <label for="item${index}" class="label">{{ task.text }}</label>
+          </div>
+          <div>
+            <img src="/assets/trash.png" class="trash" (click)="deleteOne(i)" />
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<button class="deleteAll" (click)="deleteAll()">Удалить все</button>
