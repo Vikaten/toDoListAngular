@@ -46,7 +46,7 @@ export class AppComponent {
     this.todoService.saveChecked(index);
   }
 
-  setDate() {
-    this.todoService.setDate()
+  setDate(date: any) {
+    this.todoService.setDate(date);
   }
 }

@@ -3,9 +3,10 @@
     <div class="clock"></div>
     <h1 class="heading">Ваш лист заметок</h1>
     <input class="space" type="text" [(ngModel)]="todoService.newToDo" />
-    <input type="date" class="date">{{todoService.toDoList}}
+    <input type="date" class="date"  [(ngModel)]="todoService.date">
     <button class="noticeButton" (click)="checkingTheString()">Добавить</button>
     <ul class="list" *ngFor="let task of todoService.toDoList; let i = index">
+      <div [class.input-date-red]="this.todoService.setDate(task.date)">до {{task.date}}</div>
       <li id="item${i}" class="li_item">
         <div class="checkTrash">
           <div class="checkText">
