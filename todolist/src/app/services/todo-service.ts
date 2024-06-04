@@ -55,9 +55,7 @@ export class TodoServiceTsService {
   setDate(date: any) {
     this.milsec = new Date(date).getTime();
     if (this.milsec < Date.now() + 86400000) {
-      console.log(date);
       return true;
-      
     }
   }
 }
