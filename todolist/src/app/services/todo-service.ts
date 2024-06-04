@@ -38,6 +38,7 @@ export class TodoServiceTsService {
 
   deleteAll() {
     this.toDoList = [];
+    localStorage.clear();
   }
 
   localStorage() {
