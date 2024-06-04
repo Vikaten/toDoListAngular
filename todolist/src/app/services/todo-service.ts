@@ -8,13 +8,15 @@ import moment from 'moment';
 export class TodoServiceTsService {
   public toDoList: ITodo[] = [];
   public newToDo: string = '';
-
+  public date: Date = new Date;
+  public milsec: number = 0;
+  
   addNewDoing() {
     let toDo = {
       text: this.newToDo,
       isChecked: false,
       id: Date.now(),
-      date: moment().format("MMM Do YY")
+      date: this.date
     };
 
     this.toDoList.push(toDo);
@@ -36,6 +38,7 @@ export class TodoServiceTsService {
 
   deleteAll() {
     this.toDoList = [];
+    localStorage.clear();
   }
 
   localStorage() {
@@ -50,7 +53,10 @@ export class TodoServiceTsService {
     this.localStorage();
   }
 
-  setDate() {
-    console.log(this.toDoList)
+  setDate(date: any) {
+    this.milsec = new Date(date).getTime();
+    if (this.milsec < Date.now() + 86400000) {
+      return true;
+    }
   }
 }

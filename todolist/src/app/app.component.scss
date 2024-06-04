@@ -66,6 +66,10 @@
     transition: background-color 0.3s, color 0.3s;
 }
 
+.input-date-red {
+    color: red;
+}
+
 .noticeButton {
     background-color: rgb(172, 54, 139);
     margin-bottom: 50px;
@@ -131,6 +135,7 @@
 
 input:checked+label {
     text-decoration: line-through;
+    color: rgb(187, 187, 187);
 }
 
 .deleteAll {
