@@ -11,7 +11,7 @@
         <div class="checkTrash">
           <div class="checkText">
             <input type="checkbox" class="checkbox" id="item${i}" [checked]="task.isChecked"  (change)="saveChecked(i)"/>   
-            <label for="item${index}" class="label">{{ task.text }}</label>
+            <label for="item${index}" class="label" [class.input-date-red]="this.todoService.setDate(task.date)">{{ task.text }}</label>
           </div>
           <div>
             <img src="/assets/trash.png" class="trash" (click)="deleteOne(i)" />
