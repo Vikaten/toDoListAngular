@@ -2,5 +2,5 @@ export interface ITodo {
     id: number;
     text: string;
     isChecked: boolean;
-    date: Date;
+    date: Date | string;
 }

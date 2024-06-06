@@ -8,15 +8,15 @@ import moment from 'moment';
 export class TodoServiceTsService {
   public toDoList: ITodo[] = [];
   public newToDo: string = '';
-  public date: Date = new Date;
+  public date: Date | string = '-';
   public milsec: number = 0;
-  
+
   addNewDoing() {
     let toDo = {
       text: this.newToDo,
       isChecked: false,
       id: Date.now(),
-      date: this.date
+      date: this.date,
     };
 
     this.toDoList.push(toDo);
@@ -34,6 +34,7 @@ export class TodoServiceTsService {
 
   deleteOne(index: number) {
     this.toDoList.splice(index, 1);
+    localStorage.setItem('todo', JSON.stringify(this.toDoList));
   }
 
   deleteAll() {
